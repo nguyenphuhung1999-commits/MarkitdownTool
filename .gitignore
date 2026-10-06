@@ -1,0 +1,20 @@
+# Python environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+
+# Generated build and distribution artifacts
+/build/
+/dist/
+
+# Runtime folders and user settings
+/input/
+/output/
+/temp/
+/config.json
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
