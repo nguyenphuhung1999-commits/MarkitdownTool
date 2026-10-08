@@ -2,6 +2,12 @@
 
 Notable changes to MarkitdownTool are listed here by release.
 
+## [2.1.2] - 2026-10-08
+
+### Changed
+
+- Updated the PDFium binding `pypdfium2` from 5.13.0 to 5.14.0.
+
 ## [2.1.1] - 2026-10-08
 
 ### Changed

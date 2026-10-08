@@ -35,7 +35,7 @@ from language_manager import (
 )
 
 
-APP_VERSION = "2.1.1"
+APP_VERSION = "2.1.2"
 GITHUB_REPOSITORY = "nguyenphuhung1999-commits/MarkitdownTool"
 GITHUB_RELEASES_API = f"https://api.github.com/repos/{GITHUB_REPOSITORY}/releases/latest"
 APP_REGISTRY_KEY = r"Software\MarkitdownTool"
