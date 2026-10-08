@@ -1,0 +1,32 @@
+version: 2
+
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Ho_Chi_Minh"
+
+    open-pull-requests-limit: 5
+
+    commit-message:
+      prefix: "deps"
+
+    labels:
+      - "dependencies"
+
+    reviewers:
+      - "nguyenphuhung1999-commits"
+
+    assignees:
+      - "nguyenphuhung1999-commits"
+
+    versioning-strategy: increase
+
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
