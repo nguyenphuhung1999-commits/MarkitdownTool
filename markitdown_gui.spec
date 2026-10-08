@@ -1,5 +1,8 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.utils.hooks import collect_all
+from pathlib import Path
+
+SPEC_DIR = Path(SPECPATH)
 
 datas = []
 binaries = []
@@ -8,10 +11,14 @@ tmp_ret = collect_all('markitdown')
 datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
 tmp_ret = collect_all('magika')
 datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
-tmp_ret = collect_all('pymupdf')
-datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
 tmp_ret = collect_all('ocrmypdf')
 datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
+tmp_ret = collect_all('pypdfium2')
+datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
+datas += [
+    (str(SPEC_DIR / filename), ".")
+    for filename in ("LICENSE.md", "DISCLAIMER.md", "PRIVACY.md", "THIRD_PARTY_NOTICES.md", "README.md")
+]
 
 
 a = Analysis(
@@ -23,7 +30,7 @@ a = Analysis(
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
-    excludes=[],
+    excludes=['fitz', 'pymupdf'],
     noarchive=False,
     optimize=0,
 )

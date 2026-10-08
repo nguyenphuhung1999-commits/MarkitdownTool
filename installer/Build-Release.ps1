@@ -42,6 +42,19 @@ foreach ($language in @("eng", "vie", "osd")) {
     }
 }
 
+$sitePackages = Join-Path $projectDir ".venv\Lib\site-packages"
+$pypdfiumDist = Get-ChildItem $sitePackages -Directory -Filter "pypdfium2-*.dist-info" | Select-Object -First 1
+if (-not $pypdfiumDist) {
+    throw "pypdfium2 distribution metadata was not found in the project environment."
+}
+$pypdfiumLicenses = Join-Path $pypdfiumDist.FullName "licenses"
+if (-not (Test-Path $pypdfiumLicenses)) {
+    throw "pypdfium2 license bundle was not found at $pypdfiumLicenses"
+}
+$licensePayload = Join-Path $projectDir "build\installer_payload\pypdfium2_licenses"
+New-Item -ItemType Directory -Force -Path $licensePayload | Out-Null
+Copy-Item (Join-Path $pypdfiumLicenses "*") $licensePayload -Recurse -Force
+
 Push-Location $projectDir
 try {
     & $python -m PyInstaller --noconfirm .\markitdown_gui.spec
