@@ -35,7 +35,7 @@ from language_manager import (
 )
 
 
-APP_VERSION = "2.1.0"
+APP_VERSION = "2.1.1"
 GITHUB_REPOSITORY = "nguyenphuhung1999-commits/MarkitdownTool"
 GITHUB_RELEASES_API = f"https://api.github.com/repos/{GITHUB_REPOSITORY}/releases/latest"
 APP_REGISTRY_KEY = r"Software\MarkitdownTool"
@@ -207,8 +207,6 @@ class MarkitdownApp:
         title_area.pack(side="left", fill="x", expand=True)
         ttk.Label(title_area, text="MarkitdownTool", style="Title.TLabel").pack(anchor="w")
         ttk.Label(title_area, text=self.t("app_subtitle"), style="Subtitle.TLabel").pack(anchor="w", pady=(2, 0))
-        self.language_manager_button = ttk.Button(header, text=self.t("ocr_languages"), command=self._open_language_manager)
-        self.language_manager_button.pack(side="right", padx=(8, 0))
         self.settings_button = ttk.Button(header, text=self.t("settings"), command=self._open_settings)
         self.settings_button.pack(side="right", padx=(8, 0))
         self.configure_languages_button = ttk.Button(header, text=self.t("configure_ocr"), command=self._choose_languages)
@@ -994,7 +992,6 @@ class MarkitdownApp:
         self.add_button.state(["disabled"] if busy else ["!disabled"])
         self.remove_button.state(["disabled"] if busy else ["!disabled"])
         self.clear_button.state(["disabled"] if busy else ["!disabled"])
-        self.language_manager_button.state(["disabled"] if busy else ["!disabled"])
         self.settings_button.state(["disabled"] if busy else ["!disabled"])
         self.configure_languages_button.state(["disabled"] if busy else ["!disabled"])
         for button in self.mode_buttons:

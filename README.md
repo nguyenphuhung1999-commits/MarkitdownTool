@@ -1,4 +1,4 @@
-﻿# MarkitdownTool 2.1.0
+﻿# MarkitdownTool 2.1.1
 
 A Windows desktop tool for processing PDF, DOCX, PPTX, and XLSX files. Scanned PDFs can be OCR-processed with Tesseract and OCRmyPDF.
 
@@ -36,6 +36,8 @@ Please review PRIVACY.md for information regarding local processing and data han
 ## Third-Party Components
 
 Please review THIRD_PARTY_NOTICES.md for information regarding third-party dependencies and licenses.
+
+See [CHANGELOG.md](CHANGELOG.md) for versioned release notes.
 
 ## Processing modes
 
